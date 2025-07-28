@@ -10,7 +10,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://YOUR_DOMAIN_HERE/openapi.yaml"
+    "url": "https://jwp-mcp-server.onrender.com/openapi.yaml"
   },
   "logo_url": "https://cdn.jwplayer.com/v2/media/1gV3W0RM/poster.jpg",
   "contact_email": "you@example.com",
