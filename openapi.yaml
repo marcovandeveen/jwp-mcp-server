@@ -2,11 +2,18 @@ openapi: 3.0.1
 info:
   title: JWP MCP API
   version: '1.0'
+servers:
+  - url: https://cdn.jwplayer.com
 paths:
-  /media/{media_id}:
+  /v2/sites/{site_id}/media/{media_id}/playback.json:
     get:
-      summary: Get media info from JW Player
+      summary: Get JW Player media playback info
       parameters:
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
         - name: media_id
           in: path
           required: true
@@ -14,13 +21,54 @@ paths:
             type: string
       responses:
         '200':
-          description: Media info
+          description: Playback info (playlist)
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: string
-                  title:
-                    type: string 
+                  playlist:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        image:
+                          type: string
+                        images:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              src:
+                                type: string
+                              width:
+                                type: integer
+                              type:
+                                type: string
+                        title:
+                          type: string
+                        mediaid:
+                          type: string
+                        sources:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              file:
+                                type: string
+                              type:
+                                type: string
+                        tracks:
+                          type: array
+                          items:
+                            type: object
+                        duration:
+                          type: number
+                        pubdate:
+                          type: integer
+                        description:
+                          type: string
+                        tags:
+                          type: string
+                        link:
+                          type: string 
