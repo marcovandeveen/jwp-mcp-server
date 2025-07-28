@@ -1,0 +1,26 @@
+openapi: 3.0.1
+info:
+  title: JWP MCP API
+  version: '1.0'
+paths:
+  /media/{media_id}:
+    get:
+      summary: Get media info from JW Player
+      parameters:
+        - name: media_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Media info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string 
